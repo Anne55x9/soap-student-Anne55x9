@@ -12,6 +12,7 @@ namespace StudentWcfService
     [ServiceContract]
     public interface IService1
     {
+
         [OperationContract]
         Student AddStudent(Student student);
 

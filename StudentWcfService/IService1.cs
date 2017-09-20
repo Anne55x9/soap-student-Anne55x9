@@ -25,6 +25,9 @@ namespace StudentWcfService
         void DeleteStudent(Student Student);
 
         [OperationContract]
+        List<Student> GetAllStudents(Student student);
+
+        [OperationContract]
         string GetData(int value);
 
         [OperationContract]

@@ -12,6 +12,26 @@ namespace StudentWcfService
     // NOTE: In order to launch WCF Test Client for testing this service, please select Service1.svc or Service1.svc.cs at the Solution Explorer and start debugging.
     public class Service1 : IService1
     {
+        public Student AddStudent(Student student)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DeleteStudent(Student Student)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Student FindStudent(string name)
+        {
+            throw new NotImplementedException();
+        }
+
+        public static List<Student> GetAllStudents(Student student)
+        {
+            throw new NotImplementedException();
+        }
+
         public string GetData(int value)
         {
             return string.Format("You entered: {0}", value);
@@ -28,6 +48,11 @@ namespace StudentWcfService
                 composite.StringValue += "Suffix";
             }
             return composite;
+        }
+
+        public void RemoveStudent(Student student)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -12,6 +12,17 @@ namespace StudentWcfService
     [ServiceContract]
     public interface IService1
     {
+        [OperationContract]
+        Student AddStudent(Student student);
+
+        [OperationContract]
+        Student FindStudent(String name);
+
+        [OperationContract]
+        void RemoveStudent(Student student);
+
+        [OperationContract]
+        void DeleteStudent(Student Student);
 
         [OperationContract]
         string GetData(int value);

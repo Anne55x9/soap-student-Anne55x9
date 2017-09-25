@@ -8,51 +8,47 @@ using System.Text;
 
 namespace StudentWcfService
 {
+    /// <summary>
+    /// Infaset IStudent med operationcontracts med datatype eller void metode signatur. 
+    /// </summary>
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "IService1" in both code and config file together.
     [ServiceContract]
-    public interface IService1
+    public interface IStudent
     {
         /// <summary>
-        /// Funktion som tilføjer en studerende.
+        /// Addstudent metoden med lokale parametre id og navn.
         /// </summary>
-        /// <param name="student"></param>
+        /// <param name="id"></param>
+        /// <param name="name"></param>
         /// <returns></returns>
-
         [OperationContract]
-        Student AddStudent(Student student);
+        Student AddStudent(int id, string name);
 
         /// <summary>
-        /// Funktion som finder studerende ud fra navn.
+        /// FindStudent udfra navn.
         /// </summary>
         /// <param name="name"></param>
         /// <returns></returns>
+
         [OperationContract]
         Student FindStudent(string name);
 
         /// <summary>
-        /// Funktion som kan slette en studerende fra listen.
+        /// GetAll studerende på en liste. 
         /// </summary>
-        /// <param name="id"></param>
+        /// <returns></returns>
 
+        [OperationContract]
+        List<Student> GetAll();
+
+        /// <summary>
+        /// RemoveStudent studerende fjernes fra listen udfra navn. 
+        /// </summary>
+        /// <param name="name"></param>
         [OperationContract]
         void RemoveStudent(string name);
 
-        /// <summary>
-        /// Funktion som kan refigere/opdatere en studerende.
-        /// </summary>
-        /// <param name="student"></param>
-        /// <returns></returns>
-
-        [OperationContract]
-        Student EditStudent(Student student);
-
-        /// <summary>
-        /// Metoden GetAll som er en IEnumarable collection af typen studerende med alle de studerende.
-        /// </summary>
-        /// <returns></returns>
-
-        List<Student> GetAll();
-  
+        //Udkommenterede metoder i wcf filen. 
 
         //[OperationContract]
         //string GetData(int value);
@@ -63,8 +59,9 @@ namespace StudentWcfService
         // TODO: Add your service operations here
     }
 
+    //Udkommenteret kode fra wcf filen. 
 
-    //// Use a data contract as illustrated in the sample below to add composite types to service operations.
+    // Use a data contract as illustrated in the sample below to add composite types to service operations.
     //[DataContract]
     //public class CompositeType
     //{

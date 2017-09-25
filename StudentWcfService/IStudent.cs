@@ -48,6 +48,10 @@ namespace StudentWcfService
         [OperationContract]
         void RemoveStudent(string name);
 
+        //[OperationContract]
+        //Student EditStudent(int id, string name);
+
+
         //Udkommenterede metoder i wcf filen. 
 
         //[OperationContract]

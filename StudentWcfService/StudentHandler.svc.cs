@@ -67,6 +67,13 @@ namespace StudentWcfService
             studentList.RemoveAll(p => p.Name == name);
         }
 
+
+        //public Student EditStudent(int id, string name)
+        //{
+        //    Student newStudent = new Student();
+        //    return newStudent;
+        //}
+
         //Udkommenterede metoder GetData og GetDataUsing.
 
         //public string GetData(int value)

@@ -16,13 +16,12 @@ namespace StudentWcfService
     public interface IStudent
     {
         /// <summary>
-        /// Addstudent metoden med lokale parametre id og navn.
+        /// Addstudent metoden med lokale s af typen student
         /// </summary>
-        /// <param name="id"></param>
-        /// <param name="name"></param>
-        /// <returns></returns>
+       
+
         [OperationContract]
-        Student AddStudent(int id, string name);
+        void AddStudent(Student s);
 
         /// <summary>
         /// FindStudent udfra navn.
@@ -34,33 +33,23 @@ namespace StudentWcfService
         Student FindStudent(string name);
 
         /// <summary>
+        /// RemoveStudent studerende fjernes fra listen udfra id. 
+        /// </summary>
+        /// <param name="id"></param>
+        [OperationContract]
+        void DeleteStudent(int id);
+
+
+        [OperationContract]
+        void EditStudent(Student s);
+
+        /// <summary>
         /// GetAll studerende på en liste. 
         /// </summary>
         /// <returns></returns>
-
         [OperationContract]
-        List<Student> GetAll();
+        List<Student> GetAllStudents();
 
-        /// <summary>
-        /// RemoveStudent studerende fjernes fra listen udfra navn. 
-        /// </summary>
-        /// <param name="name"></param>
-        [OperationContract]
-        void RemoveStudent(string name);
-
-        //[OperationContract]
-        //Student EditStudent(int id, string name);
-
-
-        //Udkommenterede metoder i wcf filen. 
-
-        //[OperationContract]
-        //string GetData(int value);
-
-        //[OperationContract]
-        //CompositeType GetDataUsingDataContract(CompositeType composite);
-
-        // TODO: Add your service operations here
     }
 
     //Udkommenteret kode fra wcf filen. 

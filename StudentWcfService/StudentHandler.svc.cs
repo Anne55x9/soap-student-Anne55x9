@@ -20,21 +20,24 @@ namespace StudentWcfService
         /// <summary>
         /// Ny instans af listen med studenrende kaldet studenterlist. 
         /// </summary>
-        public static List<Student> studentList = new List<Student>();
+        static List<Student> studentList = new List<Student>()
+        {
+            new Student(){Id = 1, Name = "Anne"},
+            new Student(){Id = 2, Name = "kasper"}
+        };
 
+     
         /// <summary>
         /// Metode som tilføjer en ny studerende til listen. 
         /// </summary>
         /// <param name="id"></param>
         /// <param name="name"></param>
         /// <returns></returns>
-        public Student AddStudent(int id, string name)
+        public void AddStudent(Student s)
         {
-            Student tempstudent = new Student();
-            tempstudent.Id = id;
-            tempstudent.Name = name;
-            studentList.Add(tempstudent);
-            return tempstudent;
+           
+            studentList.Add(s);
+            
         }
 
         /// <summary>
@@ -52,9 +55,11 @@ namespace StudentWcfService
         /// Metode som retunere alle elemeneterne på listen studentlist. 
         /// </summary>
         /// <returns></returns>
-        public List<Student> GetAll()
+        public List<Student> GetAllStudents()
         {
-            return studentList;
+         
+                return studentList;
+    
         }
 
         /// <summary>
@@ -62,36 +67,19 @@ namespace StudentWcfService
         /// </summary>
         /// <param name="name"></param>
 
-        public void RemoveStudent(string name)
+        public void DeleteStudent(int id)
         {
-            studentList.RemoveAll(p => p.Name == name);
+            studentList.RemoveAll(p => p.Id == id);
+        }
+
+        public void EditStudent(Student s)
+        {
+            var student = studentList.Find(p => p.Id == s.Id);
+            student.Id = s.Id;
+            student.Name = s.Name;
         }
 
 
-        //public Student EditStudent(int id, string name)
-        //{
-        //    Student newStudent = new Student();
-        //    return newStudent;
-        //}
-
-        //Udkommenterede metoder GetData og GetDataUsing.
-
-        //public string GetData(int value)
-        //{
-        //    return string.Format("You entered: {0}", value);
-        //}
-
-        //public CompositeType GetDataUsingDataContract(CompositeType composite)
-        //{
-        //    if (composite == null)
-        //    {
-        //        throw new ArgumentNullException("composite");
-        //    }
-        //    if (composite.BoolValue)
-        //    {
-        //        composite.StringValue += "Suffix";
-        //    }
-        //    return composite;
-        //}
+       
     }
 }

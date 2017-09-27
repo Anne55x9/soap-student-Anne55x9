@@ -12,38 +12,12 @@ namespace StudentWcfService
     [DataContract]
     public class Student
     {
-        /// <summary>
-        /// Datamedlem id i full property.
-        /// </summary>
-        [DataMember]
-        private int id;
+       [DataMember]
+       public int Id { get; set; }
 
-        public int Id
-        {
-            get { return id; }
-            set { id = value; }
-        }
+       [DataMember]
+       public string Name { get; set; }
 
-        /// <summary>
-        /// Datamedlem name i full property. 
-        /// </summary>
-        [DataMember]
-        private string name;
-
-        public string Name
-        {
-            get { return name; }
-            set { name = value; }
-        }
-
-        /// <summary>
-        /// Tostrig af student klasse til Wcf test consol. 
-        /// </summary>
-        /// <returns></returns>
-        public override string ToString()
-        {
-            return Id + Name;
-        }
 
     }
 }

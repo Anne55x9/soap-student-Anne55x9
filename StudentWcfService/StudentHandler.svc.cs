@@ -80,6 +80,10 @@ namespace StudentWcfService
 
         }
 
+        public void GetStudentListCount()
+        {
+            studentList.Count();
+        }
 
        
     }

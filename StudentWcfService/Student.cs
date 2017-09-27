@@ -18,6 +18,6 @@ namespace StudentWcfService
        [DataMember]
        public string Name { get; set; }
 
-
+    
     }
 }

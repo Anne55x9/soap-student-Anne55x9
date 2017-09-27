@@ -9,35 +9,104 @@
 //------------------------------------------------------------------------------
 
 namespace StudentConsumerClientSoap.ServiceReference1 {
+    using System.Runtime.Serialization;
+    using System;
     
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Student", Namespace="http://schemas.datacontract.org/2004/07/StudentWcfService")]
+    [System.SerializableAttribute()]
+    public partial class Student : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IStudent")]
     public interface IStudent {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStudent/AddStudent", ReplyAction="http://tempuri.org/IStudent/AddStudentResponse")]
-        StudentWcfService.Student AddStudent(int id, string name);
+        void AddStudent(StudentConsumerClientSoap.ServiceReference1.Student s);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStudent/AddStudent", ReplyAction="http://tempuri.org/IStudent/AddStudentResponse")]
-        System.Threading.Tasks.Task<StudentWcfService.Student> AddStudentAsync(int id, string name);
+        System.Threading.Tasks.Task AddStudentAsync(StudentConsumerClientSoap.ServiceReference1.Student s);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStudent/FindStudent", ReplyAction="http://tempuri.org/IStudent/FindStudentResponse")]
-        StudentWcfService.Student FindStudent(string name);
+        StudentConsumerClientSoap.ServiceReference1.Student FindStudent(string name);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStudent/FindStudent", ReplyAction="http://tempuri.org/IStudent/FindStudentResponse")]
-        System.Threading.Tasks.Task<StudentWcfService.Student> FindStudentAsync(string name);
+        System.Threading.Tasks.Task<StudentConsumerClientSoap.ServiceReference1.Student> FindStudentAsync(string name);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStudent/GetAll", ReplyAction="http://tempuri.org/IStudent/GetAllResponse")]
-        StudentWcfService.Student[] GetAll();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStudent/DeleteStudent", ReplyAction="http://tempuri.org/IStudent/DeleteStudentResponse")]
+        void DeleteStudent(int id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStudent/GetAll", ReplyAction="http://tempuri.org/IStudent/GetAllResponse")]
-        System.Threading.Tasks.Task<StudentWcfService.Student[]> GetAllAsync();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStudent/DeleteStudent", ReplyAction="http://tempuri.org/IStudent/DeleteStudentResponse")]
+        System.Threading.Tasks.Task DeleteStudentAsync(int id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStudent/RemoveStudent", ReplyAction="http://tempuri.org/IStudent/RemoveStudentResponse")]
-        void RemoveStudent(string name);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStudent/EditStudent", ReplyAction="http://tempuri.org/IStudent/EditStudentResponse")]
+        void EditStudent(StudentConsumerClientSoap.ServiceReference1.Student s);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStudent/RemoveStudent", ReplyAction="http://tempuri.org/IStudent/RemoveStudentResponse")]
-        System.Threading.Tasks.Task RemoveStudentAsync(string name);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStudent/EditStudent", ReplyAction="http://tempuri.org/IStudent/EditStudentResponse")]
+        System.Threading.Tasks.Task EditStudentAsync(StudentConsumerClientSoap.ServiceReference1.Student s);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStudent/GetAllStudents", ReplyAction="http://tempuri.org/IStudent/GetAllStudentsResponse")]
+        StudentConsumerClientSoap.ServiceReference1.Student[] GetAllStudents();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStudent/GetAllStudents", ReplyAction="http://tempuri.org/IStudent/GetAllStudentsResponse")]
+        System.Threading.Tasks.Task<StudentConsumerClientSoap.ServiceReference1.Student[]> GetAllStudentsAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -67,36 +136,44 @@ namespace StudentConsumerClientSoap.ServiceReference1 {
                 base(binding, remoteAddress) {
         }
         
-        public StudentWcfService.Student AddStudent(int id, string name) {
-            return base.Channel.AddStudent(id, name);
+        public void AddStudent(StudentConsumerClientSoap.ServiceReference1.Student s) {
+            base.Channel.AddStudent(s);
         }
         
-        public System.Threading.Tasks.Task<StudentWcfService.Student> AddStudentAsync(int id, string name) {
-            return base.Channel.AddStudentAsync(id, name);
+        public System.Threading.Tasks.Task AddStudentAsync(StudentConsumerClientSoap.ServiceReference1.Student s) {
+            return base.Channel.AddStudentAsync(s);
         }
         
-        public StudentWcfService.Student FindStudent(string name) {
+        public StudentConsumerClientSoap.ServiceReference1.Student FindStudent(string name) {
             return base.Channel.FindStudent(name);
         }
         
-        public System.Threading.Tasks.Task<StudentWcfService.Student> FindStudentAsync(string name) {
+        public System.Threading.Tasks.Task<StudentConsumerClientSoap.ServiceReference1.Student> FindStudentAsync(string name) {
             return base.Channel.FindStudentAsync(name);
         }
         
-        public StudentWcfService.Student[] GetAll() {
-            return base.Channel.GetAll();
+        public void DeleteStudent(int id) {
+            base.Channel.DeleteStudent(id);
         }
         
-        public System.Threading.Tasks.Task<StudentWcfService.Student[]> GetAllAsync() {
-            return base.Channel.GetAllAsync();
+        public System.Threading.Tasks.Task DeleteStudentAsync(int id) {
+            return base.Channel.DeleteStudentAsync(id);
         }
         
-        public void RemoveStudent(string name) {
-            base.Channel.RemoveStudent(name);
+        public void EditStudent(StudentConsumerClientSoap.ServiceReference1.Student s) {
+            base.Channel.EditStudent(s);
         }
         
-        public System.Threading.Tasks.Task RemoveStudentAsync(string name) {
-            return base.Channel.RemoveStudentAsync(name);
+        public System.Threading.Tasks.Task EditStudentAsync(StudentConsumerClientSoap.ServiceReference1.Student s) {
+            return base.Channel.EditStudentAsync(s);
+        }
+        
+        public StudentConsumerClientSoap.ServiceReference1.Student[] GetAllStudents() {
+            return base.Channel.GetAllStudents();
+        }
+        
+        public System.Threading.Tasks.Task<StudentConsumerClientSoap.ServiceReference1.Student[]> GetAllStudentsAsync() {
+            return base.Channel.GetAllStudentsAsync();
         }
     }
 }

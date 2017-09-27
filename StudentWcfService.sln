@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentWcfService", "Studen
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentConsumerClientSoap", "StudentConsumerClientSoap\StudentConsumerClientSoap.csproj", "{5ACD27B3-57B3-4962-8A82-63DE326703C9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentWcfServiceTests", "StudentWcfServiceTests\StudentWcfServiceTests.csproj", "{8B6AE6C2-18ED-45C6-AE83-7A69F8B14EEF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{5ACD27B3-57B3-4962-8A82-63DE326703C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5ACD27B3-57B3-4962-8A82-63DE326703C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5ACD27B3-57B3-4962-8A82-63DE326703C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B6AE6C2-18ED-45C6-AE83-7A69F8B14EEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B6AE6C2-18ED-45C6-AE83-7A69F8B14EEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B6AE6C2-18ED-45C6-AE83-7A69F8B14EEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B6AE6C2-18ED-45C6-AE83-7A69F8B14EEF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

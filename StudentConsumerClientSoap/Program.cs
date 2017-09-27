@@ -13,9 +13,11 @@ namespace StudentConsumerClientSoap
         {
             using (var client = new ServiceReference1.StudentClient("BasicHttpBinding_IStudent1")) 
             {
-                foreach (var st in client.GetAll())
-                {
-                    Console.WriteLine(st);
+                foreach (var st in client.GetAllStudents())
+                { 
+               
+                    Console.WriteLine(st.Id);
+                    Console.WriteLine(st.Name);
                 }
                  
                 

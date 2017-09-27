@@ -70,5 +70,40 @@ namespace StudentWcfService.Tests
 
         }
 
+        [TestMethod()]
+        public void EditStudentTest()
+        {
+            //Arrange
+            Service1 ser = new Service1();
+            Student st = new Student();
+
+            //Act
+            st.Id = 2;
+            st.Name = "Kalle";
+            ser.EditStudent(st);
+
+            //Assert
+            Assert.AreEqual("Kalle", st.Name);
+
+
+        }
+
+        [TestMethod()]
+        public void DeleteStudentTest()
+        {
+            Service1 ser = new Service1();
+
+            Student st = new Student();
+
+            //Act
+
+            st.Id = 2;
+            st.Name = "kasper";
+            ser.DeleteStudent(2);
+
+            //Arrange
+
+            Assert.AreEqual(null, null);
+        }
     }
 }
